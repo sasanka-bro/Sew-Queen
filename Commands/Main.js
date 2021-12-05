@@ -1,17 +1,17 @@
 /* 
- Sew Queen Whatsapp Bot                       
+ King SEW Whatsapp Bot                       
 
- Telegram: t.me/RavinduManoj
+ Telegram: t.me/Yurensasanka
  Facebook: https://www.facebook.com/ravindu.manoj.79
  Licensed under the  GPL-3.0 License;
 
  Coded By Ravindu Manoj
 */ 
 let DataPack = require('sew-queen-pro');
-let SewQueen = require('sew-queen-pro/sources/dc/handler');
-let Details = require('sew-queen-pro/sources/dc/Details');
-let { sendMessageUnlimtedSpam } = require('sew-queen-pro/sources/dc/cmd/spam')
-let { MessageType, MessageOptions, Mimetype, GroupSettingChange, ChatModification } = require('@ravindu01manoj/sew-queen-web');
+let Kingsew = require('sew-king-pro/sources/dc/handler');
+let Details = require('sew-king-pro/sources/dc/Details');
+let { sendMessageUnlimtedSpam } = require('sew-king-pro/sources/dc/cmd/spam')
+let { MessageType, MessageOptions, Mimetype, GroupSettingChange, ChatModification } = require('@sasanka-bro/sew-king-web');
 let fs = require('fs'); let os = require('os'); let ffmpeg = require('fluent-ffmpeg'); let exec = require('child_process').exec;
 let axios = require('axios');
 let got = require('got');
@@ -21,11 +21,11 @@ let Language = DataPack.constdata
 let WorkType = Details.WORKTYPE == 'public' ? false : true
 
 const Lang = Language.dataGet('profile');
-let { sendMessageAutoReply, sendMessageWarnKick, sendMessageError} = require('sew-queen-pro/sources/dc/cmd/warn')
-let { sendMessageVerification, sendMessageCheckVerify } = require('sew-queen-pro/sources/dc/cmd/verify')
-let { SewQueenWebQrGenarater, checkIsGroup} = require('sew-queen-pro/sources/dc/cmd/admin')
-let { sendMessageSetUp } = require('sew-queen-pro/sources/dc/cmd/setup')
-let { sendMessageGrpClone } = require('sew-queen-pro/sources/dc/cmd/clone')
+let { sendMessageAutoReply, sendMessageWarnKick, sendMessageError} = require('sew-king-pro/sources/dc/cmd/warn')
+let { sendMessageVerification, sendMessageCheckVerify } = require('sew-king-pro/sources/dc/cmd/verify')
+let { SewQueenWebQrGenarater, checkIsGroup} = require('sew-king-pro/sources/dc/cmd/admin')
+let { sendMessageSetUp } = require('sew-king-pro/sources/dc/cmd/setup')
+let { sendMessageGrpClone } = require('sew-king-pro/sources/dc/cmd/clone')
 let SEWA = 'need word'
 let SEWB = 'Successfully Changed'
 let CLR_DESC = 'Chat clear'
@@ -34,8 +34,8 @@ let { ReplyMessegedelete, sendMessageResetgroup, sendMessageJoingroup,
         sendMessageDimogroup, sendMessageMutegroup, sendMessageUnmutgroup, 
         sendMessageDpgroup, sendMessageGetstatus, sendMessageClearlist, sendMessageTextboom, 
         sendMessageMpboom, sendMessageJpboom, sendMessageStickboom, sendMessageVidboom, 
-        sendMessagecommgrp, sendMessagediffgrp, sendMessageinbox} = require('sew-queen-pro/sources/dc/cmd/admin');
-let { sendMessagebadckickdata, sendMessageinbokickdata, sendMessagedatacopykick, BadKick} = require('sew-queen-pro/sources/dc/cmd/bad');
+        sendMessagecommgrp, sendMessagediffgrp, sendMessageinbox} = require('sew-king-pro/sources/dc/cmd/admin');
+let { sendMessagebadckickdata, sendMessageinbokickdata, sendMessagedatacopykick, BadKick} = require('sew-king-pro/sources/dc/cmd/bad');
 
 async function checkUsAdmin(message, user = message.data.participant) {
     var grup = await message.client.groupMetadata(message.jid);
@@ -55,34 +55,34 @@ async function checkImAdmin(message, user = message.client.user.jid) {
 }
 
 
-// NOW Sew Queen Users Can Give Qr For Another Person To Make Thair Sew Queen Bot Easily
-SewQueen['IntroduceCMD']({
+// NOW Sew king Users Can Give Qr For Another Person To Make Thair Sew king Bot Easily
+KingSEW['IntroduceCMD']({
         pattern: 'getqr ?(.*)',
         fromMe: true, 
         dontAdCommandList: true
         }, 
-(async (QueenSew, input) => {
+(async (kingsew, input) => {
 try {
-await SewQueenWebQrGenarater(QueenSew, input)
+await SewQueenWebQrGenarater(kingsew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(kingsew, e)
 }
 })); 
 // Automated
 
-// Sew Queen Verification System For Join Sew Queen Helping Groups...
-SewQueen['IntroduceCMD']({
+// Sew KING Verification System For Join Sew Queen Helping Groups...
+kingsew['IntroduceCMD']({
         pattern: 'verify ?(.*)',
         fromMe: true, 
         dontAdCommandList: true,
                 }, 
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;
 try {
-await sendMessageVerification(QueenSew, input)
+await sendMessageVerification(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 })); 
 
@@ -92,37 +92,37 @@ SewQueen['IntroduceCMD']({
         dontAdCommandList: true,
                 }, 
 (async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;
 try {
-await sendMessageGrpClone(QueenSew, input)
+await sendMessageGrpClone(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 })); 
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'commingsoon ?(.*)',// give Unlimeted Spam Attack
         fromMe: true, 
         dontAdCommandList: true,
                 }, 
 (async (QueenSew, input) => { 
-await sendMessageUnlimtedSpam(QueenSew, input)
+await sendMessageUnlimtedSpam(KingSew, input)
 })); 
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         on: 'text', 
         fromMe: false, 
         dontAdCommandList: true, 
         delownsewcmd: false, 
                 },
-(async (QueenSew, input) => {
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => {
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;
 try {
-await sendMessageCheckVerify(QueenSew)
+await sendMessageCheckVerify(KingSew)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }))
 // End Verification
@@ -132,13 +132,13 @@ SewQueen['IntroduceCMD']({
         fromMe: true, 
                 disc: 'Brodcast A message For All Members of Any Group'
         }, 
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;
 try {
-await sendMessageinbox(QueenSew, input)
+await sendMessageinbox(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 })); 
 
@@ -147,7 +147,7 @@ SewQueen['IntroduceCMD']({
         fromMe: true, 
         dontAdCommandList: true
         }, 
-(async (QueenSew, input) => { 
+(async (KingSew, input) => { 
 try {
 await sendMessageSetUp(QueenSew, input)
 } catch (e) {
@@ -155,16 +155,16 @@ await sendMessageError(QueenSew, e)
 }
 })); 
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'autoreply ?(.*)', 
         fromMe: WorkType, 
         dontAdCommandList: true
         }, 
-(async (QueenSew, input) => { 
+(async (KingSew, input) => { 
 try {
-await sendMessageAutoReply(QueenSew, input, 'set')
+await sendMessageAutoReply(KingSew, input, 'set')
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 })); 
 SewQueen['IntroduceCMD']({
@@ -261,104 +261,104 @@ SewQueen['IntroduceCMD']({
         fromMe: true,
         dontAdCommandList: true},
 (async (QueenSew, input) => { 
-await sendMessageJpboom(QueenSew, input)
+await sendMessageJpboom(KingSew, input)
 }));
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'boomstic$',
         fromMe: true,
         dontAdCommandList: true },
 (async (QueenSew, input) => {     
 try {
-await sendMessageStickboom(QueenSew, input)
+await sendMessageStickboom(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'boomvid$',
         fromMe: true,
         dontAdCommandList: true },
 (async (QueenSew, input) => { 
 try {
-await sendMessageVidboom(QueenSew, input)
+await sendMessageVidboom(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 //================================ᴄʟᴇᴀʀ=========
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'clear ?(.*)',
         fromMe: true,
         desc: CLR_DESC,
         usage: '.clear // .clear 94718281xxx // .clear 94718281xxx-12345678@g.us'},
 (async (QueenSew, input) => { 
 try {
- await sendMessageClearlist(QueenSew, input)
+ await sendMessageClearlist(KingSew, input)
  } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 //================================ꜱᴛᴀᴛᴜꜱ=========
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'getst$',
         fromMe: true,
         dontAdCommandList: true},
 (async (QueenSew, input) => { 
 try {
-    await sendMessageGetstatus(QueenSew, input)
+    await sendMessageGetstatus(KingSew, input)
     } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 //================================ʙᴀᴅ ᴋɪᴄᴋ=========
-SewQueen['IntroduceCMD']({on: 'text',
+KingSew['IntroduceCMD']({on: 'text',
         fromMe: false,
         delownsewcmd: false},
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;
 try {
-await sendMessagebadckickdata(QueenSew, input)
+await sendMessagebadckickdata(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 //================================ᴄᴏᴘʏ ʏᴀ ᴋɪᴄᴋ 😆=========
-SewQueen['IntroduceCMD']({on: 'text',
+KingSew['IntroduceCMD']({on: 'text',
         fromMe: false,
         delownsewcmd: false},
-(async (QueenSew, input) => { 
+(async (KingSew, input) => { 
 try {
-await sendMessagedatacopykick(QueenSew, input)
+await sendMessagedatacopykick(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 //================================ɪɴʙᴏx ʙʟᴏᴄᴋ=========
  if (Details.INBO == 'true') {
-SewQueen['IntroduceCMD']({on: 'text',
+KingSew['IntroduceCMD']({on: 'text',
         fromMe: false,
         delownsewcmd: false,
         onlyPm: true },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (grptest) return;
 try {
-await sendMessageinbokickdata(QueenSew, input)
+await sendMessageinbokickdata(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
 }
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'badkick ?(.*)', 
         fromMe: WorkType, 
         dontAdCommandList: true,
                 }, 
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;
 try {
 await BadKick(QueenSew, input)
@@ -427,322 +427,322 @@ SewQueen['IntroduceCMD']({
 var grptest = await checkIsGroup(QueenSew);
     if (!grptest) return;  
 try {
-await sendMessageKickgroup(QueenSew, input)
+await sendMessageKickgroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'add(?: |$)(.*)',
         fromMe: true,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;  
 try {
-await sendMessageAddgroup(QueenSew, input)
+await sendMessageAddgroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'promote ?(.*)',
         fromMe: true,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;   
 try { 
-await sendMessagePromogroup(QueenSew, input)
+await sendMessagePromogroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'demote ?(.*)',
         fromMe: true,
         dontAdCommandList: true,
         },
 (async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {
-await sendMessageDimogroup(QueenSew, input)
+await sendMessageDimogroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'mute ?(.*)',
         fromMe: true,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {
-await sendMessageMutegroup(QueenSew, input)
+await sendMessageMutegroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'unmute ?(.*)',
         fromMe: true,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {
-await sendMessageUnmutgroup(QueenSew, input)
+await sendMessageUnmutgroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'invite ?(.*)',
         fromMe: true,
         dontAdCommandList: true,
         },
 (async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {
-    var im = await checkImAdmin(QueenSew);
-    if (!im) return await QueenSew.client.sendMessage(QueenSew.jid,'I Am Not A Admin', MessageType.text);
-    var invite = await QueenSew.client.groupInviteCode(QueenSew.jid);
-    await QueenSew.client.sendMessage(QueenSew.jid,'INVITE LINK: https://chat.whatsapp.com/' + invite, MessageType.text);
+    var im = await checkImAdmin(KingSew);
+    if (!im) return await KingSew.client.sendMessage(KingSew.jid,'I Am Not A Admin', MessageType.text);
+    var invite = await KingSew.client.groupInviteCode(KingSew.jid);
+    await KingSew.client.sendMessage(KingSew.jid,'INVITE LINK: https://chat.whatsapp.com/' + invite, MessageType.text);
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'name ?(.*)',
                 fromMe: true,
         dontAdCommandList: true},
 (async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;
-    var im = await checkImAdmin(QueenSew);
-    if (!im) return await QueenSew.client.sendMessage(QueenSew.jid,Lang.IM_NOT_ADMIN,MessageType.text);
-    if (input[1] === '') return await QueenSew.client.sendMessage(QueenSew.jid,SEWA);
-    await QueenSew.client.groupUpdateSubject(QueenSew.jid, input[1]);
-    await QueenSew.client.sendMessage(QueenSew.jid,SEWB,MessageType.text);
+    var im = await checkImAdmin(KingSew);
+    if (!im) return await KingSew.client.sendMessage(KingSew.jid,Lang.IM_NOT_ADMIN,MessageType.text);
+    if (input[1] === '') return await KingSew.client.sendMessage(KingSew.jid,SEWA);
+    await KingSew.client.groupUpdateSubject(KingSew.jid, input[1]);
+    await KingSew.client.sendMessage(KingSew.jid,SEWB,MessageType.text);
     }
 ));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'dp',
         fromMe: true,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {
-await sendMessageDpgroup(QueenSew, input)
+await sendMessageDpgroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
 if (Details.GRPMANAGE == 'true') {
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'reset ?(.*)',
         fromMe: false,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;
-await sendMessageResetgroup(QueenSew, input)
+await sendMessageResetgroup(KingSew, input)
   } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'kick ?(.*)',
         fromMe: false,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;
-await sendMessageKickgroup(QueenSew, input)
+await sendMessageKickgroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'add(?: |$)(.*)',
         fromMe: false,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;
-await sendMessageAddgroup(QueenSew, input)
+await sendMessageAddgroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'promote ?(.*)',
         fromMe: false,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;  
-await sendMessagePromogroup(QueenSew, input)
+await sendMessagePromogroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'demote ?(.*)',
         fromMe: false,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;  
-await sendMessageDimogroup(QueenSew, input)
+await sendMessageDimogroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'mute ?(.*)',
         fromMe: false,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;  
-await sendMessageMutegroup(QueenSew, input)
+await sendMessageMutegroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'unmute ?(.*)',
         fromMe: false,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;  
-await sendMessageUnmutgroup(QueenSew, input)
+await sendMessageUnmutgroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'invite ?(.*)',
         fromMe: false,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;  
-    var im = await checkImAdmin(QueenSew);
-    if (!im) return await QueenSew.client.sendMessage(QueenSew.jid,Lang.IM_NOT_ADMIN, MessageType.text);
-    var invite = await QueenSew.client.groupInviteCode(QueenSew.jid);
-    await QueenSew.client.sendMessage(QueenSew.jid,'INVITE LINK: https://chat.whatsapp.com/' + invite, MessageType.text);
+    var im = await checkImAdmin(KingSew);
+    if (!im) return await KingSew.client.sendMessage(KingSew.jid,Lang.IM_NOT_ADMIN, MessageType.text);
+    var invite = await KingSew.client.groupInviteCode(KingSew.jid);
+    await KingSew.client.sendMessage(KingSew.jid,'INVITE LINK: https://chat.whatsapp.com/' + invite, MessageType.text);
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'name ?(.*)',
                 fromMe: false,
         dontAdCommandList: true},
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;
-    var im = await checkImAdmin(QueenSew);
-    if (!im) return await QueenSew.client.sendMessage(QueenSew.jid,Lang.IM_NOT_ADMIN,MessageType.text);
-    if (input[1] === '') return await QueenSew.client.sendMessage(QueenSew.jid,SEWA);
-    await QueenSew.client.groupUpdateSubject(QueenSew.jid, input[1]);
-    await QueenSew.client.sendMessage(QueenSew.jid,SEWB,MessageType.text);
+    var im = await checkImAdmin(KingSew);
+    if (!im) return await KingSew.client.sendMessage(KingSew.jid,Lang.IM_NOT_ADMIN,MessageType.text);
+    if (input[1] === '') return await KingSew.client.sendMessage(KingSew.jid,SEWA);
+    await KingSew.client.groupUpdateSubject(KingSew.jid, input[1]);
+    await KingSew.client.sendMessage(KingSew.jid,SEWB,MessageType.text);
     }
 ));
 
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'dp',
         fromMe: false,
         dontAdCommandList: true,
         },
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;    
 try {  
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;  
-await sendMessageDpgroup(QueenSew, input)
+await sendMessageDpgroup(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 }));
-SewQueen['IntroduceCMD']({
+KingSew['IntroduceCMD']({
         pattern: 'warn ?(.*)', 
         fromMe: false, 
         dontAdCommandList: true,
                 }, 
-(async (QueenSew, input) => { 
-var grptest = await checkIsGroup(QueenSew);
+(async (KingSew, input) => { 
+var grptest = await checkIsGroup(KingSew);
     if (!grptest) return;
     try {
-var us = await checkUsAdmin(QueenSew)
+var us = await checkUsAdmin(KingSew)
 if (!us) return;  
-await sendMessageWarnKick(QueenSew, input)
+await sendMessageWarnKick(KingSew, input)
 } catch (e) {
-await sendMessageError(QueenSew, e)
+await sendMessageError(KingSew, e)
 }
 })); 
 }
 
 
-SewQueen['IntroduceCMD']({pattern: 'left', fromMe: true, dontAdCommandList: true, desc: Lang.KICKME_DESC, }, (async (message, match) => {
+KingSew['IntroduceCMD']({pattern: 'left', fromMe: true, dontAdCommandList: true, desc: Lang.KICKME_DESC, }, (async (message, match) => {
     if (Details.KICKMEMSG == 'default') { 
         await message.client.sendMessage(message.jid,Lang.KICKME,MessageType.text);
         await message.client.groupLeave(message.jid);
@@ -753,7 +753,7 @@ SewQueen['IntroduceCMD']({pattern: 'left', fromMe: true, dontAdCommandList: true
     }
 }));
 
-SewQueen['IntroduceCMD']({pattern: 'pp', fromMe: true, dontAdCommandList: true, desc: Lang.PP_DESC}, (async (message, match) => {    
+KingSew['IntroduceCMD']({pattern: 'pp', fromMe: true, dontAdCommandList: true, desc: Lang.PP_DESC}, (async (message, match) => {    
     if (!message.reply_message || !message.reply_message.image) return await message.client.sendMessage(message.jid,Lang.NEED_PHOTO, MessageType.text);
     
     var load = await message.client.sendMessage(message.jid,Lang.PPING,MessageType.text);
@@ -769,7 +769,7 @@ SewQueen['IntroduceCMD']({pattern: 'pp', fromMe: true, dontAdCommandList: true, 
     await message.client.deleteMessage(message.jid, {id: load.key.id, remoteJid: message.jid, fromMe: true})
 }));
 
-SewQueen['IntroduceCMD']({pattern: 'block ?(.*)', fromMe: true, dontAdCommandList: true, desc: Lang.BLOCK_DESC}, (async (message, match) => {   
+KingSew['IntroduceCMD']({pattern: 'block ?(.*)', fromMe: true, dontAdCommandList: true, desc: Lang.BLOCK_DESC}, (async (message, match) => {   
     if (Details.BLOCKMSG == 'default') {  
         if (message.reply_message !== false) {
             await message.client.sendMessage(message.jid, '@' + message.reply_message.jid.split('@')[0] + '```, ' + Lang.BLOCKED + '!```', MessageType.text, {
@@ -812,7 +812,7 @@ SewQueen['IntroduceCMD']({pattern: 'block ?(.*)', fromMe: true, dontAdCommandLis
     }
 }));
 
-SewQueen['IntroduceCMD']({pattern: 'unblock ?(.*)', fromMe: true, dontAdCommandList: true, desc: Lang.UNBLOCK_DESC}, (async (message, match) => { 
+KingSew['IntroduceCMD']({pattern: 'unblock ?(.*)', fromMe: true, dontAdCommandList: true, desc: Lang.UNBLOCK_DESC}, (async (message, match) => { 
     if (Details.UNBLOCKMSG == 'default') { 
    
         if (message.reply_message !== false) {
@@ -855,15 +855,15 @@ SewQueen['IntroduceCMD']({pattern: 'unblock ?(.*)', fromMe: true, dontAdCommandL
         }
     }
 }));
-SewQueen['IntroduceCMD']({pattern: 'getdp', fromMe: true, dontAdCommandList: true}, (async (message, match) => {
+KingSew['IntroduceCMD']({pattern: 'getdp', fromMe: true, dontAdCommandList: true}, (async (message, match) => {
 var ppUrl = await message.client.getProfilePicture(message.jid) 
 const resim = await axios.get(ppUrl, {responseType: 'arraybuffer'})
     await message.client.updateProfilePicture(message.client.user.jid, Buffer(resim.data));
  }));
-SewQueen['IntroduceCMD']({pattern: 'getbio', fromMe: true, dontAdCommandList: true}, (async (message, match) => {
+KingSew['IntroduceCMD']({pattern: 'getbio', fromMe: true, dontAdCommandList: true}, (async (message, match) => {
 var status = await message.client.getStatus(message.jid) 
 await message.client.setStatus(status)
 }));
-SewQueen['IntroduceCMD']({on: 'text', fromMe: false, dontAdCommandList: true}, (async (message, match) => {
-if(Details.VOICE_REPLY == 'true'){if(!!message.mention && message.mention[0] == '94785457519@s.whatsapp.net') {await message.client.sendMessage(message.jid, fs.readFileSync('./VoiceClip/mention.mp3'), MessageType.audio, { mimetype: Mimetype.mp4Audio, quoted : message.data, ptt: true})};const array = ['Bye','Hello','Helo','Hey','Hi','Hy','I love you','Marilada','bye','hello','hey','helo','hi','hy','i love you','marilada','sewmaker','bitch','sapak','Sapak','Bich','y ban','Y ban','Y bn','y bn','Why ban','why ban','uddika','Uddika','sindu','Sindu','Seen','seen','Raviya','raviya','notes','Pinnaya','Paraya','Pala','pinnaya','paraya','pala','natanna','Natanna','Natahan','natahan','Nah','nah','na na','Na na','mokek','Mokek','Mk','mk','Kohomd','kohomada','kohomd','Kohomd','hum','Hum','Hmm','hmm','Hako','hako','ha ha','Ha ha','Guti','guti','Gothaya','gothaya','Good night','good night','good morning','Good Morning','Gn','gn','Gm','gm','Gahano','gahano','Gahanawa','gahanawa','Fuck','fuck','Esawa','esawa','Ep wel','ep wel','epa wela','Epa wela','En nane','en nane','Bitch','bich','Bb ek','bb ek','balagena','Balagena','balaganin','Balaganin','baba eka','Baba eka','Adarey','adarey','Adarei','adarei','Akke','akke','Baduwa','baduwa','Balli','balli','Denawada','denawada','Hukanna','hukanna','Hukanni','hukanni','Huththa','huththa','Huththi','huththi','Kariya','kariya','Kellekda','kellekda','Love','love','Namaskaram','namaskaram','Namasthe','namasthe','Namgi','namgi','Pakaya','pakaya','Ponnaya','ponnaya','ponni','Ponni','U girl','u girl','Umma','umma','Ummah','ummah','Ummma','ummma','Vesawi','vesawi','Vesavi','vesavi','Wesi','wesi','You girl','you girl'];array.map( async (a) => {let pattern = new RegExp(`\\b${a}\\b`, 'g');if(pattern.test(message.message)){await message.client.sendMessage(message.jid, fs.readFileSync('./VoiceClip/' + a + '.mp3'), MessageType.audio, { mimetype: Mimetype.mp4Audio, quoted: message.data, ptt: true})}})}}))
+KingSew['IntroduceCMD']({on: 'text', fromMe: false, dontAdCommandList: true}, (async (message, match) => {
+if(Details.VOICE_REPLY == 'true'){if(!!message.mention && message.mention[0] == '94776135807@s.whatsapp.net') {await message.client.sendMessage(message.jid, fs.readFileSync('./VoiceClip/mention.mp3'), MessageType.audio, { mimetype: Mimetype.mp4Audio, quoted : message.data, ptt: true})};const array = ['Bye','Hello','Helo','Hey','Hi','Hy','I love you','Marilada','bye','hello','hey','helo','hi','hy','i love you','marilada','sewmaker','bitch','sapak','Sapak','Bich','y ban','Y ban','Y bn','y bn','Why ban','why ban','uddika','Uddika','sindu','Sindu','Seen','seen','Raviya','raviya','notes','Pinnaya','Paraya','Pala','pinnaya','paraya','pala','natanna','Natanna','Natahan','natahan','Nah','nah','na na','Na na','mokek','Mokek','Mk','mk','Kohomd','kohomada','kohomd','Kohomd','hum','Hum','Hmm','hmm','Hako','hako','ha ha','Ha ha','Guti','guti','Gothaya','gothaya','Good night','good night','good morning','Good Morning','Gn','gn','Gm','gm','Gahano','gahano','Gahanawa','gahanawa','Fuck','fuck','Esawa','esawa','Ep wel','ep wel','epa wela','Epa wela','En nane','en nane','Bitch','bich','Bb ek','bb ek','balagena','Balagena','balaganin','Balaganin','baba eka','Baba eka','Adarey','adarey','Adarei','adarei','Akke','akke','Baduwa','baduwa','Balli','balli','Denawada','denawada','Hukanna','hukanna','Hukanni','hukanni','Huththa','huththa','Huththi','huththi','Kariya','kariya','Kellekda','kellekda','Love','love','Namaskaram','namaskaram','Namasthe','namasthe','Namgi','namgi','Pakaya','pakaya','Ponnaya','ponnaya','ponni','Ponni','U girl','u girl','Umma','umma','Ummah','ummah','Ummma','ummma','Vesawi','vesawi','Vesavi','vesavi','Wesi','wesi','You girl','you girl','pissa','pissi'];array.map( async (a) => {let pattern = new RegExp(`\\b${a}\\b`, 'g');if(pattern.test(message.message)){await message.client.sendMessage(message.jid, fs.readFileSync('./VoiceClip/' + a + '.mp3'), MessageType.audio, { mimetype: Mimetype.mp4Audio, quoted: message.data, ptt: true})}})}}))
 
